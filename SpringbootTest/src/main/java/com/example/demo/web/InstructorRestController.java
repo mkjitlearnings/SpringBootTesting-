@@ -4,6 +4,8 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,6 +29,7 @@ import com.example.demo.service.InstructorService;
 @RestController
 public class InstructorRestController {
 
+	private static final Logger logger = LoggerFactory.getLogger(InstructorRestController.class);
 	
 	
 	@Autowired			// Apprach based on Spring JPA Data
@@ -42,6 +45,7 @@ public class InstructorRestController {
 	@GetMapping("/jpa/trainers")
 	public List<Instructor> getAllInstructorsThroughJPAData()
 	{
+		logger.info("inside getAllInstructor through JPA Data ");
 		return insService.getAllInstructors();
 	}
 	
